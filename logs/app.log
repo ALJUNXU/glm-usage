@@ -1,0 +1,73 @@
+2026-03-22 22:09:56,049 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.103:5000
+2026-03-22 22:09:56,049 [INFO] [33mPress CTRL+C to quit[0m
+2026-03-22 22:09:56,051 [INFO]  * Restarting with stat
+2026-03-22 22:09:56,815 [WARNING]  * Debugger is active!
+2026-03-22 22:09:56,819 [INFO]  * Debugger PIN: 134-523-704
+2026-03-22 22:10:13,945 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:13] "GET / HTTP/1.1" 200 -
+2026-03-22 22:10:14,120 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "GET /static/style.css HTTP/1.1" 200 -
+2026-03-22 22:10:14,194 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "GET /static/app.js HTTP/1.1" 200 -
+2026-03-22 22:10:14,521 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "GET /api/status HTTP/1.1" 200 -
+2026-03-22 22:10:14,524 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "GET /api/config HTTP/1.1" 200 -
+2026-03-22 22:10:14,527 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 22:10:14,708 [INFO] 127.0.0.1 - - [22/Mar/2026 22:10:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2026-03-22 22:14:07,563 [INFO] 配置已更新
+2026-03-22 22:14:07,566 [INFO] 127.0.0.1 - - [22/Mar/2026 22:14:07] "POST /api/config HTTP/1.1" 200 -
+2026-03-22 22:14:07,841 [INFO] 127.0.0.1 - - [22/Mar/2026 22:14:07] "GET /api/status HTTP/1.1" 200 -
+2026-03-22 22:14:09,311 [INFO] 开始获取使用量数据...
+2026-03-22 22:14:43,442 [INFO] 获取数据成功: {'timestamp': '2026-03-22T22:14:19.613469', 'hourly_quota_percent': 16.0, 'weekly_quota_percent': 64.0}
+2026-03-22 22:14:43,444 [INFO] 127.0.0.1 - - [22/Mar/2026 22:14:43] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 22:14:43,772 [INFO] 127.0.0.1 - - [22/Mar/2026 22:14:43] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 22:20:38,373 [INFO] 开始获取使用量数据...
+2026-03-22 22:20:56,073 [INFO] 获取数据成功: {'timestamp': '2026-03-22T22:20:48.813895', 'hourly_quota_percent': 17.0, 'weekly_quota_percent': 65.0}
+2026-03-22 22:20:56,075 [INFO] 127.0.0.1 - - [22/Mar/2026 22:20:56] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 22:20:56,093 [INFO] 127.0.0.1 - - [22/Mar/2026 22:20:56] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 22:21:00,395 [INFO] 配置已更新
+2026-03-22 22:21:00,396 [INFO] 127.0.0.1 - - [22/Mar/2026 22:21:00] "POST /api/config HTTP/1.1" 200 -
+2026-03-22 22:29:13,810 [INFO] 127.0.0.1 - - [22/Mar/2026 22:29:13] "GET /api/logs?lines=100 HTTP/1.1" 200 -
+2026-03-22 22:31:00,621 [INFO] 开始获取使用量数据...
+2026-03-22 22:31:34,696 [INFO] 获取数据成功: {'timestamp': '2026-03-22T22:31:11.028795', 'hourly_quota_percent': 17.0, 'weekly_quota_percent': 65.0}
+2026-03-22 22:31:34,697 [INFO] 127.0.0.1 - - [22/Mar/2026 22:31:34] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 22:31:34,724 [INFO] 127.0.0.1 - - [22/Mar/2026 22:31:34] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 22:41:00,579 [INFO] 开始获取使用量数据...
+2026-03-22 22:41:18,712 [INFO] 获取数据成功: {'timestamp': '2026-03-22T22:41:11.459349', 'hourly_quota_percent': 19.0, 'weekly_quota_percent': 65.0}
+2026-03-22 22:41:18,713 [INFO] 127.0.0.1 - - [22/Mar/2026 22:41:18] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 22:41:18,742 [INFO] 127.0.0.1 - - [22/Mar/2026 22:41:18] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 22:51:00,580 [INFO] 开始获取使用量数据...
+2026-03-22 22:51:32,384 [INFO] 获取数据成功: {'timestamp': '2026-03-22T22:51:11.582339', 'hourly_quota_percent': 19.0, 'weekly_quota_percent': 65.0}
+2026-03-22 22:51:32,385 [INFO] 127.0.0.1 - - [22/Mar/2026 22:51:32] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 22:51:32,402 [INFO] 127.0.0.1 - - [22/Mar/2026 22:51:32] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 23:01:00,579 [INFO] 开始获取使用量数据...
+2026-03-22 23:01:19,623 [INFO] 获取数据成功: {'timestamp': '2026-03-22T23:01:12.418736', 'hourly_quota_percent': 19.0, 'weekly_quota_percent': 65.0}
+2026-03-22 23:01:19,624 [INFO] 127.0.0.1 - - [22/Mar/2026 23:01:19] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 23:01:19,642 [INFO] 127.0.0.1 - - [22/Mar/2026 23:01:19] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 23:03:00,503 [INFO] 开始获取使用量数据...
+2026-03-22 23:03:18,574 [INFO] 获取数据成功: {'timestamp': '2026-03-22T23:03:11.505663', 'hourly_quota_percent': 19.0, 'weekly_quota_percent': 65.0}
+2026-03-22 23:03:18,575 [INFO] 127.0.0.1 - - [22/Mar/2026 23:03:18] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 23:03:18,595 [INFO] 127.0.0.1 - - [22/Mar/2026 23:03:18] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 23:11:00,581 [INFO] 开始获取使用量数据...
+2026-03-22 23:11:34,554 [INFO] 获取数据成功: {'timestamp': '2026-03-22T23:11:11.071889', 'hourly_quota_percent': 19.0, 'weekly_quota_percent': 65.0}
+2026-03-22 23:11:34,554 [INFO] 127.0.0.1 - - [22/Mar/2026 23:11:34] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 23:11:34,573 [INFO] 127.0.0.1 - - [22/Mar/2026 23:11:34] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 23:17:03,335 [INFO]  * Detected change in 'E:\\prog\\glm-usage-monitor\\github_actions_sync.py', reloading
+2026-03-22 23:17:03,538 [INFO]  * Restarting with stat
+2026-03-22 23:17:04,188 [WARNING]  * Debugger is active!
+2026-03-22 23:17:04,194 [INFO]  * Debugger PIN: 134-523-704
+2026-03-22 23:18:21,712 [INFO]  * Detected change in 'E:\\prog\\glm-usage-monitor\\github_actions_sync.py', reloading
+2026-03-22 23:18:21,834 [INFO]  * Restarting with stat
+2026-03-22 23:18:22,384 [WARNING]  * Debugger is active!
+2026-03-22 23:18:22,388 [INFO]  * Debugger PIN: 134-523-704
+2026-03-22 23:21:00,583 [INFO] 开始获取使用量数据...
+2026-03-22 23:21:18,846 [INFO] 获取数据成功: {'timestamp': '2026-03-22T23:21:11.458225', 'hourly_quota_percent': 21.0, 'weekly_quota_percent': 65.0}
+2026-03-22 23:21:18,847 [INFO] 127.0.0.1 - - [22/Mar/2026 23:21:18] "GET /api/usage HTTP/1.1" 200 -
+2026-03-22 23:21:18,873 [INFO] 127.0.0.1 - - [22/Mar/2026 23:21:18] "GET /api/usage/history HTTP/1.1" 200 -
+2026-03-22 23:21:27,569 [INFO]  * Detected change in 'E:\\prog\\glm-usage-monitor\\github_actions_sync.py', reloading
+2026-03-22 23:21:27,692 [INFO]  * Restarting with stat
+2026-03-22 23:21:28,223 [WARNING]  * Debugger is active!
+2026-03-22 23:21:28,228 [INFO]  * Debugger PIN: 134-523-704
+2026-03-22 23:24:24,322 [INFO]  * Detected change in 'E:\\prog\\glm-usage-monitor\\scraper.py', reloading
+2026-03-22 23:24:24,408 [INFO]  * Restarting with stat
+2026-03-22 23:24:24,987 [WARNING]  * Debugger is active!
+2026-03-22 23:24:24,991 [INFO]  * Debugger PIN: 134-523-704
