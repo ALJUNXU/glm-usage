@@ -14,7 +14,7 @@ class GLMScraper:
     async def get_usage_data(self) -> dict:
         """获取使用量数据"""
         async with async_playwright() as p:
-            browser = await p.chromium.launch(headless=True, channel='msedge')
+            browser = await p.chromium.launch(headless=True)
             context = await browser.new_context()
 
             if self.cookie:
@@ -37,7 +37,7 @@ class GLMScraper:
 
                 page.on('response', handle_response)
                 await page.goto(self.TARGET_URL, wait_until='networkidle', timeout=60000)
-                await page.wait_for_timeout(3000)
+                await page.wait_for_timeout(5000)
 
                 if api_data:
                     return self._extract_limits(api_data)
