@@ -1,8 +1,11 @@
 """智谱AI使用量爬虫模块"""
 import asyncio
 import json
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from playwright.async_api import async_playwright
+
+# 中国时区 UTC+8
+CN_TIMEZONE = timezone(timedelta(hours=8))
 
 
 class GLMScraper:
@@ -77,10 +80,10 @@ class GLMScraper:
         return result
 
     def _format_reset_time(self, timestamp_ms: int) -> str:
-        """格式化重置时间"""
+        """格式化重置时间（中国时区）"""
         if not timestamp_ms:
             return None
-        dt = datetime.fromtimestamp(timestamp_ms / 1000)
+        dt = datetime.fromtimestamp(timestamp_ms / 1000, tz=CN_TIMEZONE)
         return dt.strftime('%Y-%m-%d %H:%M:%S')
 
     def _parse_cookie_string(self, cookie_string: str) -> list:

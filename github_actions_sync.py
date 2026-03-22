@@ -3,8 +3,11 @@ import os
 import json
 import asyncio
 import re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from scraper import GLMScraper
+
+# 中国时区 UTC+8
+CN_TIMEZONE = timezone(timedelta(hours=8))
 
 DATA_FILE = 'data/usage_history.json'
 README_FILE = 'README.md'
@@ -54,7 +57,7 @@ def update_readme(data):
 
     hourly = data.get('hourly_quota_percent') or 0
     weekly = data.get('weekly_quota_percent') or 0
-    update_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    update_time = datetime.now(tz=CN_TIMEZONE).strftime('%Y-%m-%d %H:%M:%S')
     hourly_reset = data.get('hourly_reset_time') or '未知'
     weekly_reset = data.get('weekly_reset_time') or '未知'
 
