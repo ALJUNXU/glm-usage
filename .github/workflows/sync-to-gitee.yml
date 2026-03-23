@@ -16,5 +16,5 @@ jobs:
 
       - name: Push to Gitee
         run: |
-          git remote add gitee https://明野:${{ secrets.GITEE_TOKEN }}@gitee.com/明野/glm-usage.git
+          git remote add gitee https://%E6%98%8E%E9%87%8E:${{ secrets.GITEE_TOKEN }}@gitee.com/%E6%98%8E%E9%87%8E/glm-usage.git
           git push gitee main --force
