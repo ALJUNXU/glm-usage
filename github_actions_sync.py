@@ -2,7 +2,6 @@
 import os
 import json
 import asyncio
-import re
 from datetime import datetime, timezone, timedelta
 from scraper import GLMScraper
 
@@ -48,27 +47,57 @@ def make_progress_bar(percent, width=25):
 
 def update_readme(data):
     """更新 README.md"""
-    if not os.path.exists(README_FILE):
-        print("README.md 不存在")
-        return
-
-    with open(README_FILE, 'r', encoding='utf-8') as f:
-        content = f.read()
-
     hourly = data.get('hourly_quota_percent') or 0
     weekly = data.get('weekly_quota_percent') or 0
     update_time = datetime.now(tz=CN_TIMEZONE).strftime('%Y-%m-%d %H:%M:%S')
     hourly_reset = data.get('hourly_reset_time') or '未知'
     weekly_reset = data.get('weekly_reset_time') or '未知'
 
-    # 替换占位符
-    content = re.sub(r'<!-- UPDATE_TIME -->', update_time, content)
-    content = re.sub(r'<!-- HOURLY -->', f'{hourly:.0f}', content)
-    content = re.sub(r'<!-- WEEKLY -->', f'{weekly:.0f}', content)
-    content = re.sub(r'<!-- HOURLY_BAR -->', make_progress_bar(hourly), content)
-    content = re.sub(r'<!-- WEEKLY_BAR -->', make_progress_bar(weekly), content)
-    content = re.sub(r'<!-- HOURLY_RESET -->', hourly_reset, content)
-    content = re.sub(r'<!-- WEEKLY_RESET -->', weekly_reset, content)
+    # 直接生成新的 README 内容
+    content = f'''# GLM Coding Plan 使用量监控
+
+<div align="center">
+
+## ⏰ 最后更新
+
+# {update_time}
+
+---
+
+## 📊 使用量
+
+### 5小时额度
+
+# {hourly:.0f}%
+
+{make_progress_bar(hourly)}
+
+🔄 重置时间: {hourly_reset}
+
+---
+
+### 每周额度
+
+# {weekly:.0f}%
+
+{make_progress_bar(weekly)}
+
+🔄 重置时间: {weekly_reset}
+
+---
+
+</div>
+
+| 状态 | 说明 |
+|:---:|:---|
+| 🟢 | < 50% 正常 |
+| 🟡 | 50-80% 注意 |
+| 🔴 | > 80% 警告 |
+
+---
+
+*由 GitHub Actions 自动更新*
+'''
 
     with open(README_FILE, 'w', encoding='utf-8') as f:
         f.write(content)
