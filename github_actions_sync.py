@@ -53,6 +53,20 @@ def update_readme(data):
     hourly_reset = data.get('hourly_reset_time') or '未知'
     weekly_reset = data.get('weekly_reset_time') or '未知'
 
+    # Cookie 失效警告
+    cookie_warning = ''
+    if data.get('cookie_expired'):
+        cookie_warning = '''
+---
+
+## ⚠️ Cookie 已失效
+
+请更新 GitHub Secrets 中的 `ZHIPU_COOKIE`
+
+---
+
+'''
+
     # 直接生成新的 README 内容
     content = f'''# GLM Coding Plan 使用量监控
 
@@ -61,7 +75,7 @@ def update_readme(data):
 ## ⏰ 最后更新
 
 # {update_time}
-
+{cookie_warning}
 ---
 
 ## 📊 使用量
@@ -121,6 +135,10 @@ async def main():
         save_history(data)
         update_readme(data)
         print("同步完成!")
+    elif data.get('cookie_expired'):
+        # Cookie 失效时也更新 README 显示警告
+        update_readme(data)
+        print("⚠️ Cookie 已失效，请更新 ZHIPU_COOKIE")
     else:
         print(f"获取失败: {data.get('error')}")
 

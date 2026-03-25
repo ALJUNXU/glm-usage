@@ -13,6 +13,7 @@ class GLMScraper:
 
     def __init__(self, cookie: str = None):
         self.cookie = cookie
+        self.cookie_valid = None  # Cookie 有效性状态
 
     async def get_usage_data(self) -> dict:
         """获取使用量数据"""
@@ -28,11 +29,16 @@ class GLMScraper:
 
             try:
                 api_data = None
+                login_required = False
 
                 async def handle_response(response):
-                    nonlocal api_data
+                    nonlocal api_data, login_required
                     try:
                         data = await response.json()
+                        # 检测是否需要登录
+                        if data.get('code') == 401 or '登录' in str(data.get('msg', '')):
+                            login_required = True
+                        # 获取限额数据
                         if isinstance(data.get('data'), dict) and 'limits' in data.get('data', {}):
                             api_data = data['data']
                     except:
@@ -42,8 +48,28 @@ class GLMScraper:
                 await page.goto(self.TARGET_URL, wait_until='networkidle', timeout=60000)
                 await page.wait_for_timeout(5000)
 
+                # 检测 Cookie 有效性
+                if login_required:
+                    self.cookie_valid = False
+                    return {
+                        'error': 'Cookie 已失效，请更新 ZHIPU_COOKIE',
+                        'cookie_expired': True,
+                        'timestamp': datetime.now().isoformat()
+                    }
+
                 if api_data:
+                    self.cookie_valid = True
                     return self._extract_limits(api_data)
+
+                # 检测页面是否跳转到登录页
+                current_url = page.url
+                if 'login' in current_url.lower():
+                    self.cookie_valid = False
+                    return {
+                        'error': 'Cookie 已失效，请更新 ZHIPU_COOKIE',
+                        'cookie_expired': True,
+                        'timestamp': datetime.now().isoformat()
+                    }
 
                 return {'error': '未获取到数据', 'timestamp': datetime.now().isoformat()}
 

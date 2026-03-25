@@ -45,6 +45,7 @@ jobs:
           git push
 
       - name: Sync to Gitee
+        continue-on-error: true
         run: |
           git remote add gitee https://al1:${{ secrets.GITEE_TOKEN }}@gitee.com/al1/glm-usage.git
           git push gitee main:master --force

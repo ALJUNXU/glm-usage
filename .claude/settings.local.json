@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "Bash(gh run:*)"
+      "Bash(gh run:*)",
+      "Bash(rm -rf app.py github_push.py templates static start.bat install.bat requirements.txt logs/app.log data/config.json .github/workflows/sync-to-gitee.yml)",
+      "Bash(rmdir logs:*)"
     ]
   }
 }
