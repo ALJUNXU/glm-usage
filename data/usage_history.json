@@ -787,5 +787,13 @@
     "hourly_reset_time": "2026-03-27 02:00:09",
     "weekly_reset_time": "2026-03-30 10:00:40",
     "level": "pro"
+  },
+  {
+    "timestamp": "2026-03-26T16:14:36.406858",
+    "hourly_quota_percent": 3,
+    "weekly_quota_percent": 32,
+    "hourly_reset_time": "2026-03-27 02:00:09",
+    "weekly_reset_time": "2026-03-30 10:00:40",
+    "level": "pro"
   }
 ]
