@@ -41,8 +41,8 @@ class GLMScraper:
                         # 获取限额数据
                         if isinstance(data.get('data'), dict) and 'limits' in data.get('data', {}):
                             api_data = data['data']
-                    except:
-                        pass
+                    except Exception as e:
+                        print(f"解析响应失败: {response.url} - {e}")
 
                 page.on('response', handle_response)
                 await page.goto(self.TARGET_URL, wait_until='networkidle', timeout=60000)
