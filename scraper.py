@@ -33,6 +33,10 @@ class GLMScraper:
 
                 async def handle_response(response):
                     nonlocal api_data, login_required
+                    # 只处理JSON响应，跳过CSS/JS/图片等
+                    content_type = response.headers.get('content-type', '')
+                    if 'json' not in content_type:
+                        return
                     try:
                         data = await response.json()
                         # 检测是否需要登录
@@ -41,8 +45,8 @@ class GLMScraper:
                         # 获取限额数据
                         if isinstance(data.get('data'), dict) and 'limits' in data.get('data', {}):
                             api_data = data['data']
-                    except Exception as e:
-                        print(f"解析响应失败: {response.url} - {e}")
+                    except Exception:
+                        pass
 
                 page.on('response', handle_response)
                 await page.goto(self.TARGET_URL, wait_until='networkidle', timeout=60000)
