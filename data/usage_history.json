@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-04-14T21:26:09.518892",
-    "hourly_quota_percent": 5,
-    "weekly_quota_percent": 2,
-    "hourly_reset_time": "2026-04-15 06:31:47",
-    "weekly_reset_time": "2026-04-20 10:00:40",
-    "level": "pro"
-  },
-  {
     "timestamp": "2026-04-14T22:12:21.766574",
     "hourly_quota_percent": 5,
     "weekly_quota_percent": 2,
@@ -3993,6 +3985,14 @@
   },
   {
     "timestamp": "2026-07-03T15:21:18.349601",
+    "hourly_quota_percent": 0,
+    "weekly_quota_percent": 22,
+    "hourly_reset_time": null,
+    "weekly_reset_time": "2026-07-06 21:17:38",
+    "level": "pro"
+  },
+  {
+    "timestamp": "2026-07-03T16:56:34.000568",
     "hourly_quota_percent": 0,
     "weekly_quota_percent": 22,
     "hourly_reset_time": null,
